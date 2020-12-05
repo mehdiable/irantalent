@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  mariadb:
+    restart: on-failure
+    image: mariadb:10.4
+    environment:
+      MYSQL_ROOT_PASSWORD: '12345'
+      MYSQL_DATABASE: irantalent_db
+    networks:
+      vnet:
+        ipv4_address: 10.0.4.3
+
+  webapp:
+    restart: unless-stopped
+    image: irantalentphp:7.4-apache
+    volumes:
+      - ./position:/var/www/html
+      - ./conf:/etc/apache2/sites-available
+    ports:
+      - target: 80
+        published: 8080
+        protocol: tcp
+        mode: host
+    networks:
+      vnet:
+        ipv4_address: 10.0.4.6
+
+networks:
+  vnet:
+    ipam:
+     config:
+       - subnet: 10.0.4.0/24
