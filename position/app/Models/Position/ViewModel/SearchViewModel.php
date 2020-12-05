@@ -24,17 +24,30 @@ class SearchViewModel implements IViewModel
         $client = ClientBuilder::create()->build();
         
         $search = request()->all([
-            'title', 'category', 'location', 'education', 'gender',
+            'title', 'category_title', 'location_title', 'education_title', 'gender',
             'salary', 'lived_at', 'expired_at', 'created_at', 'age'
         ]);
         
         $params = [
             'index' => 'positions',
-            'body'  => [
-                'query' => [
-                    'multi_match' => [
-                        'query' => $search['title'],
-                        'fields' => ['title', 'category', 'location', 'education', 'gender']
+            'body' => [
+                "query" => [
+                    "bool" => [
+                        "should" => [
+                            ['match' => ['category_title' => $search['category_title'] ?? '']],
+                            ['match' => ['location_title' => $search['location_title'] ?? '']],
+                            ['match' => ['education_title' => $search['education_title'] ?? '']],
+                            ['match' => ['gender' => $search['gender'] ?? '']],
+                            [
+                                'multi_match' => [
+                                    'query' => $search['title'] ?? '',
+                                    'type' => 'best_fields',
+                                    'fields' => ['title', 'category_title', 'location_title', 'education_title'],
+                                    'fuzziness' => '0',
+                                    'prefix_length' => 1,
+                                ]
+                            ]
+                        ]
                     ]
                 ]
             ]
