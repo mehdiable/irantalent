@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\ViewModel;
+use Database\Seeders\DatabaseSeeder;
 
 class PositionController extends Controller
 {
+    /**
+     * run seeders
+     */
+    public function runSeeders(): void {
+        (new DatabaseSeeder)->run();
+    }
+    
     /**
      * Get position list
      *

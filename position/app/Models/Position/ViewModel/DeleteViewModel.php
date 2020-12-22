@@ -22,6 +22,7 @@ class DeleteViewModel implements IViewModel
         $model = PositionModel::query()->find($id);
         
         if ($model && $model->delete()) {
+            
             // soft deleted
             return \response()->json(['success' => 'Soft Deleted Successfully.']);
         }

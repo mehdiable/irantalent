@@ -16,8 +16,10 @@ class PositionSeeder extends Seeder
     public function run()
     {
         PositionModel::factory(500)->create();
-    
-        $client = ClientBuilder::create()->build();
+        
+        $client = ClientBuilder::create()
+            ->setHosts([env('ELASTIC_SEARCH_HOST')])
+            ->build();
     
         $model = PositionModel::query()->with(['relCategory', 'relEducation', 'relLocation'])->get()->toArray();
     

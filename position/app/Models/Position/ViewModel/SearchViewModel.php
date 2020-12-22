@@ -21,7 +21,9 @@ class SearchViewModel implements IViewModel
      */
     public function action()
     {
-        $client = ClientBuilder::create()->build();
+        $client = ClientBuilder::create()
+            ->setHosts([env('ELASTIC_SEARCH_HOST')])
+            ->build();
         
         $search = request()->all([
             'title', 'category_title', 'location_title', 'education_title', 'gender',

@@ -46,7 +46,9 @@ trait PositionIndexTrait
             'body' => $body
         ];
         
-        $client = ClientBuilder::create()->build();
+        $client = ClientBuilder::create()
+            ->setHosts([env('ELASTIC_SEARCH_HOST')])
+            ->build();
         $client->index($params);
     }
 }

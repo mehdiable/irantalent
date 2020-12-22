@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 // simple access check process
 Route::group(['middleware' => ['access'], 'namespace' => 'App\Http\Controllers'], function ()
 {
+    Route::get('/seed', 'PositionController@runSeeders')->name('seeder');
     Route::get('/', 'PositionController@index')->name('index');
     Route::get('/view/{id}', 'PositionController@view')->name('view');
     Route::post('/create', 'PositionController@create')->name('create');
