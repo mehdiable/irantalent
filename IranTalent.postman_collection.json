@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "0663316d-3a73-4080-8629-7936c55d5835",
+		"name": "IranTalent",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "test 3",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "27",
+							"type": "text"
+						},
+						{
+							"key": "min_age",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "max_age",
+							"value": "40",
+							"type": "text"
+						},
+						{
+							"key": "education_id",
+							"value": "17",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "male",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "14000000",
+							"type": "text"
+						},
+						{
+							"key": "location_id",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "expired_at",
+							"value": "2021-01-03",
+							"type": "text"
+						},
+						{
+							"key": "lived_at",
+							"value": "2020-12-20",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/create",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "test 1 - update",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "28",
+							"type": "text"
+						},
+						{
+							"key": "min_age",
+							"value": "21",
+							"type": "text"
+						},
+						{
+							"key": "max_age",
+							"value": "42",
+							"type": "text"
+						},
+						{
+							"key": "education_id",
+							"value": "18",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "female",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "12000000",
+							"type": "text"
+						},
+						{
+							"key": "location_id",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "expired_at",
+							"value": "2021-01-04",
+							"type": "text"
+						},
+						{
+							"key": "lived_at",
+							"value": "2020-12-21",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/update/2010",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"update",
+						"2010"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/delete/2011",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"delete",
+						"2011"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "index",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/?token=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						""
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/search?token=1&title=php&category_title=Laboratory&gender=male&location_title=Tabriz&education_title=Doctoral",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "1"
+						},
+						{
+							"key": "title",
+							"value": "php"
+						},
+						{
+							"key": "category_title",
+							"value": "Laboratory"
+						},
+						{
+							"key": "gender",
+							"value": "male"
+						},
+						{
+							"key": "location_title",
+							"value": "Tabriz"
+						},
+						{
+							"key": "education_title",
+							"value": "Doctoral"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{url}}/api/view/2009?token=1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"view",
+						"2009"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
